@@ -3,7 +3,7 @@
 	$stmt = $db->prepare('SELECT * FROM Userino WHERE userName = ? AND password = ?');
 
 	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$stmt->execute(array($username, $password));
 
 	if($row = $stmt->fetch()) {
