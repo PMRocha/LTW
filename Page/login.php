@@ -8,6 +8,7 @@
 
 	if($row = $stmt->fetch()) {
 		echo 'You have successfully logged in, ' . $row['userName'] . '!';
+		echo password_hash($_POST['password'], PASSWORD_DEFAULT);
 	} else {
 		echo 'Either your username or password are incorrect.';
 	}

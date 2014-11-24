@@ -45,11 +45,12 @@ CREATE TABLE AnswerResult (
 	FOREIGN KEY(AnswerResults) REFERENCES Answer(AnswerID)
 );
 
+/*below the bcrypt hash for 'qwerty' is being used */
 INSERT INTO Userino (password,userName)
-VALUES ('qwerty','user');
+VALUES ('$2y$10$4WwPyBrPHQpC9/nA76gTYOnpKcYZgRNcuISxUXY5bVIKZQfKJBqQS','user');
 
 INSERT INTO Userino (password,userName)
-VALUES ('qwerty','user21');
+VALUES ('$2y$10$4WwPyBrPHQpC9/nA76gTYOnpKcYZgRNcuISxUXY5bVIKZQfKJBqQS','user21');
 
 /*
 Creating a Poll
