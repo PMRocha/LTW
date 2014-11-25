@@ -10,6 +10,7 @@ session_start();
 	if($row = $stmt->fetch()) {
 		if($row['password'] == hash("sha256", $password)){
 			$_SESSION['name'] = $row['userName'];
+			$_SESSION['userID'] = $row['UserID'];
 			echo "You have successfully logged in, " . $row['userName'] . "!\n";
 			echo "\nRedirecting...";
 			?>

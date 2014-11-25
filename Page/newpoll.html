@@ -1,0 +1,26 @@
+<?php
+session_start();
+	if(isset($_SESSION['name']) && $_SESSION['name'] != '') {
+?>
+<html>
+	<head>
+		<title>Creating poll - POLL RAVAGER 3000</title>
+	</head>
+	<body>
+		<h3>Please choose what you want for your poll!</h3>
+		<form action="createpoll.php" method="post">
+			<p>Question:</p>
+			<input type="text" name="question">
+			<p>Answer 1:</p>
+			<input type="text" name="answer1">
+			<p>Answer 2:</p>
+			<input type="text" name="answer2">
+			<p></p>
+			<input type="submit" value="Create poll!">
+			<a href="personal.php">(or cancel)</a>
+		</form>
+	</body>
+</html>
+<?php
+	}
+?>
