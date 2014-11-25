@@ -40,4 +40,15 @@ session_start();
 
 		$db->commit();
 	}
+
+	$db = new PDO('sqlite:../DataBase/Poll.db');
+
+	//delete everything
+	$stmt = $db->prepare('DELETE FROM Poll');
+	$stmt->execute();
+	$stmt = $db->prepare('SELECT * FROM Poll');
+	$stmt->execute();
+	while($row = $stmt->fetch()) {
+		echo $row['CreatorID'] . "\n";
+	}
 ?>
