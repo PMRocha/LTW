@@ -1,4 +1,5 @@
 <?php
+session_start();
 	$db = new PDO('sqlite:../DataBase/Poll.db');
 	$stmt = $db->prepare('SELECT * FROM Userino WHERE userName = ?');
 
@@ -8,10 +9,22 @@
 	$stmt->execute(array($username));
 	if($row = $stmt->fetch()) {
 		if($row['password'] == hash("sha256", $password)){
-			echo 'You have successfully logged in, ' . $row['userName'] . '!';
+			$_SESSION['name'] = $row['userName'];
+			echo "You have successfully logged in, " . $row['userName'] . "!\n";
+			echo "\nRedirecting...";
+			?>
+			<meta http-equiv="refresh" content="3;url=../Page/personal.php" />
+			<?php
+			die();
 		} else {
-			echo "Either your username or password are incorrect.\n";		}
+			?>
+			<meta http-equiv="refresh" content="3;url=../Page/starthere.html" />
+			<?php
+			echo "Either your username or password are incorrect.\n";
+			echo "\nRedirecting...";
+		}	
 	} else {
 		echo "No user by that name.";
 	}
+session_destroy();
 ?>
