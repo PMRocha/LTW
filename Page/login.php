@@ -1,15 +1,17 @@
 <?php
 	$db = new PDO('sqlite:../DataBase/Poll.db');
-	$stmt = $db->prepare('SELECT * FROM Userino WHERE userName = ? AND password = ?');
+	$stmt = $db->prepare('SELECT * FROM Userino WHERE userName = ?');
 
 	$username = $_POST['username'];
-	$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	$stmt->execute(array($username, $password));
-
+	$password = $_POST['password'];
+	
+	$stmt->execute(array($username));
 	if($row = $stmt->fetch()) {
-		echo 'You have successfully logged in, ' . $row['userName'] . '!';
-		echo password_hash($_POST['password'], PASSWORD_DEFAULT);
+		if($row['password'] == hash("sha256", $password)){
+			echo 'You have successfully logged in, ' . $row['userName'] . '!';
+		} else {
+			echo "Either your username or password are incorrect.\n";		}
 	} else {
-		echo 'Either your username or password are incorrect.';
+		echo "No user by that name.";
 	}
 ?>

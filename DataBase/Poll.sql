@@ -47,10 +47,10 @@ CREATE TABLE AnswerResult (
 
 /*below the bcrypt hash for 'qwerty' is being used */
 INSERT INTO Userino (password,userName)
-VALUES ('$2y$10$4WwPyBrPHQpC9/nA76gTYOnpKcYZgRNcuISxUXY5bVIKZQfKJBqQS','user');
+VALUES ('65e84be33532fb784c48129675f9eff3a682b27168c0ea744b2cf58ee02337c5','user');
 
 INSERT INTO Userino (password,userName)
-VALUES ('$2y$10$4WwPyBrPHQpC9/nA76gTYOnpKcYZgRNcuISxUXY5bVIKZQfKJBqQS','user21');
+VALUES ('65e84be33532fb784c48129675f9eff3a682b27168c0ea744b2cf58ee02337c5','user21');
 
 /*
 Creating a Poll
