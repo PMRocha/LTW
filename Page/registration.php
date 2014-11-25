@@ -6,7 +6,7 @@
 	$password = $_POST['password'];
 	$password2 = $_POST['password2'];
 	if($password == $password2) {
-		$stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));
+		$stmt->execute(array(hash("sha256", $password), $username));
 		echo 'Registration successful!';
 	}
 ?>
