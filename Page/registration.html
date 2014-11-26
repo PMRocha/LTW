@@ -1,8 +1,17 @@
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>Registration - POLL RAVAGER 3000</title>
 	</head>
 	<body>
+	
+	<div id="wrap">
+		<div id="header">
+			<h1>POLL RAVAGER 3000</h1>
+			<br>
+			<h2>Registration</h2> <!-- if you remove this not only will the page crash, we'll get sued. Again -->
+		</div>
+		<div class="left">
 		<form action="registration.php" method="post">
 			<p>Select a username</p>
 			<input type="text" name="username" required="required">
@@ -11,7 +20,19 @@
 			<p>Please repeat your password</p>
 			<input type="password" name="password2" required="required">
 			<p></p>
+			<br>
 			<input type="submit" value="Register">
 		</form>
+		</div>
+		<div class="right">
+		<p>Already a member? <b><br><u><a href="starthere.html">Log In Now</a></u></b></p>
+		
+		</div>
+		<div style="clear: both;"> </div>
+		<div id="footer">
+			<p>LTW FEUP 2014/2015</p>
+			<p>Miguel Mendes, Pedro Rocha</p>
+		</div>
+		</div>
 	</body>
 </html>

@@ -4,21 +4,31 @@ session_start();
 ?>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>Creating poll - POLL RAVAGER 3000</title>
 	</head>
 	<body>
-		<h3>Please choose what you want for your poll!</h3>
-		<form action="createpoll.php" method="post">
-			<p>Question:</p>
-			<input type="text" name="question">
-			<p>Answer 1:</p>
-			<input type="text" name="answer1">
-			<p>Answer 2:</p>
-			<input type="text" name="answer2">
-			<p></p>
-			<input type="submit" value="Create poll!">
-			<a href="personal.php">(or cancel)</a>
-		</form>
+		<div id="wrap">
+			<div id="header">
+				<h1>POLL RAVAGER 3000</h1>
+				<br>
+				<h2>Create a new poll</h2> <!-- if you remove this not only will the page crash, we'll get sued. Again -->
+			</div>
+			<div class="centered">
+				<h3>Please choose what you want for your poll!</h3>
+				<form action="createpoll.php" method="post">
+					<p>Question:</p>
+					<input type="text" name="question">
+					<p>Answer 1:</p>
+					<input type="text" name="answer1">
+					<p>Answer 2:</p>
+					<input type="text" name="answer2">
+					<p></p><br>
+					<input type="submit" value="Create poll!">
+					<a href="personal.php">(or cancel)</a>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
 <?php
