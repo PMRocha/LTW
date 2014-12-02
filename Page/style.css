@@ -69,6 +69,14 @@ letter-spacing: -3px;
 font-weight: 100;
 padding : 10px 0 15px 0;
 }
+
+.centered h3 {
+color: #97C4FF;
+font-size: 20px;
+letter-spacing: -3px;
+font-weight: 100;
+padding : 10px 0 15px 0;
+}
 .centered a { text-decoration: none }
 
 .left {
