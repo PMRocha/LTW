@@ -10,7 +10,6 @@
 		$stmt2->execute(array($pollID));
 
 		if($row = $stmt2->fetch()) {
-			echo $row['CreatorID'] . $_SESSION['userID'];
 			if($row['CreatorID'] != $_SESSION['userID']) {
 				?>
 				<img src="idontthinkso.png" alt="I don't think so...">
