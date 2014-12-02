@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS Answer;
 DROP TABLE IF EXISTS AnswerToPoll;
 DROP TABLE IF EXISTS AnswerResult;
 
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE Userino (
 	UserID INTEGER PRIMARY KEY AUTOINCREMENT,
 	password CHAR(20) NOT NULL,
@@ -15,34 +17,34 @@ CREATE TABLE Poll (
 	PollId INTEGER PRIMARY KEY AUTOINCREMENT,
 	CreatorID INTEGER,
 	PrivatePoll Boolean default 'False',
-	FOREIGN KEY(CreatorID) REFERENCES Userino(UserID)
+	FOREIGN KEY(CreatorID) REFERENCES Userino(UserID) ON DELETE CASCADE
 	);
 
 CREATE TABLE Question (
 	QuestionID INTEGER PRIMARY KEY AUTOINCREMENT,
 	QuestionText CHAR(150),
 	QuestionPoll INTEGER,
-	FOREIGN KEY(QuestionPoll) REFERENCES Poll(PollId)
+	FOREIGN KEY(QuestionPoll) REFERENCES Poll(PollId) ON DELETE CASCADE
 );
 
 CREATE TABLE Answer (
 	AnswerID INTEGER PRIMARY KEY AUTOINCREMENT,
 	AnswerOption CHAR(100),
 	AnswerToQuestion INTEGER,
-	FOREIGN KEY(AnswerToQuestion) REFERENCES Question(QuestionID)
+	FOREIGN KEY(AnswerToQuestion) REFERENCES Question(QuestionID) ON DELETE CASCADE
 );
 
 CREATE TABLE AnswerToPoll (
 	AnsweredPollId INTEGER,
 	AnsweredUserID INTEGER,
-	FOREIGN KEY(AnsweredPollId) REFERENCES Poll(PollId),
-	FOREIGN KEY(AnsweredUserID) REFERENCES Userino(UserID)
+	FOREIGN KEY(AnsweredPollId) REFERENCES Poll(PollId) ON DELETE CASCADE,
+	FOREIGN KEY(AnsweredUserID) REFERENCES Userino(UserID) ON DELETE CASCADE
 );
 
 CREATE TABLE AnswerResult (
 	AnswerResults INTEGER,
 	ResultCont INTEGER default 0,
-	FOREIGN KEY(AnswerResults) REFERENCES Answer(AnswerID)
+	FOREIGN KEY(AnswerResults) REFERENCES Answer(AnswerID) ON DELETE CASCADE
 );
 
 /*below the bcrypt hash for 'qwerty' is being used */
