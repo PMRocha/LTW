@@ -6,15 +6,19 @@
 
 	while($row = $stmt->fetch()) {
 		?>
-		<h3><?=echo $row['QuestionText'];?></h3>
+		<h3><?=$row['QuestionText']?></h3>
 		<form action="answerpoll.php" method="get">
 			<?php
 				$stmt2 = $db->prepare('SELECT * FROM Answer WHERE AnswerToQuestion = ?');
 				$stmt2->execute(array($row['QuestionID']));
 				while($answerRow = $stmt2->fetch()) {
 					?>
-					<input type="radio" name="" value="<?php=echo $answerRow['AnswerOption'];?>>
+					<input type="radio" name="answer" value="<?=$answerRow['AnswerID']?>"><?=$answerRow['AnswerOption']?><p></p>
 					<?php
 				}
+			?>
+			<input type="submit" value="Answer">
+		</form>
+		<?php
 	}
 ?>
