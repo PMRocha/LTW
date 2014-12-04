@@ -8,7 +8,7 @@ session_start();
 		$cont = 0;
 		foreach ($_POST as $i => $value) {
 			if($cont >0){
-				echo("Answer:".$_POST[$i]."\n");
+				
 				$stmt = $db->prepare('INSERT INTO Answer(AnswerOption,AnswerToQuestion)
 							SELECT  ?, QuestionID
 							FROM    Question 
@@ -22,7 +22,7 @@ session_start();
 				$stmt->execute();
 			}
 			else{
-				echo("Question:".$_POST[$i]."\n");
+				
 				$stmt = $db->prepare('INSERT INTO Poll(CreatorID) VALUES (?)');
 				$stmt->execute(array($_SESSION['userID']));
 				//store question poll relation
@@ -38,16 +38,11 @@ session_start();
 		$db->commit();
 	}
 
-	$db = new PDO('sqlite:../DataBase/Poll.db');
-
-	$stmt = $db->prepare('SELECT * FROM Poll');
-	$stmt->execute();
-	while($row = $stmt->fetch()) {
-		echo $row['CreatorID'] . "\n";
-	}
-		$stmt = $db->prepare('SELECT * FROM Question');
-	$stmt->execute();
-	while($row = $stmt->fetch()) {
-		echo $row['QuestionText'] . "\n";
-	}
+			echo "<div id='wrap'><div id='header'>";
+			echo "<h1>Poll Created Successfully\n</h1><br>";
+			echo "<h2>\nRedirecting...</h2></div></div>";
+			?>
+			<link rel="stylesheet" type="text/css" href="style.css">
+			<meta http-equiv="refresh" content="3;url=../Page/personal.php" />
+			<?php
 ?>
