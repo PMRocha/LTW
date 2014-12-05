@@ -29,6 +29,7 @@
 					
 				}
 			?>
+			<input type="hidden" name="pollID" value="<?=$_GET['pollID']?>">
 			<input class="myButton" type="submit" value="Answer">
 			</div>
 			<div style="clear: both;"> </div>
