@@ -14,6 +14,7 @@
 			<div class="centered">
 				<h2><a href="newpoll.html">Create poll</a><br></h2>
 				<h2><a href="managepolls.php">Manage Poll</a></h2>
+				<h2><a href="listpolls.php">Answer Polls</a></h2>
 				</p>
 			</div>
 			
