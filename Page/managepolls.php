@@ -9,12 +9,17 @@
 		$stmt2 = $db->prepare('SELECT * FROM Question WHERE QuestionPoll = ?');
 
 		?>
+		<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Manage Polls - POLL RAVAGER 3000</title>
+		</head>
 		<div id="wrap">
 			<div id="header">
 				<h1>POLL RAVAGER 3000</h1>
 				<br>
 				<h2>Your poll's first questions:</h2>
 			</div>
+			<div class="centered">
 		
 		<?php
 
@@ -24,8 +29,8 @@
 			if($row2 = $stmt2->fetch()) {
 				$firstquestion = $row2['QuestionText'];
 				?>
-				<link rel="stylesheet" type="text/css" href="style.css">
-				<div class="centered">
+				
+				
 				<p><?=$firstquestion?> <a href="deletepoll.php?pollID=<?=$pollID?>">Delete this poll =(</a></p>
 				
 				<?php
